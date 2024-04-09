@@ -211,22 +211,28 @@ function valida() {
     let Mostrador: IMuestra = ConfiguradorGeneral.dameMostrador();
 
     let MiPersona = Creador.damePersona();
+    let contenedor = (<HTMLDivElement>document.getElementById("contenedor"));
+
     let _verde = document.getElementById("verde");
     let _rojo = document.getElementById("rojo");
     if (ValidadorPersona.isValid(MiPersona)) {
         if (_verde != null) {
             _verde.innerHTML = Mostrador.dameContenido(MiPersona).toString();
+            contenedor.className = "validoVerde";
         }
         if (_rojo != null) { 
             _rojo.innerHTML = "";
+            contenedor.className = "validoRojo";
         }
     }
     else {
         if (_rojo != null) {
             _rojo.innerHTML = Mostrador.dameContenido(MiPersona).toString();
+            contenedor.className = "invalido";
         }
         if (_verde != null) {
             _verde.innerHTML = "";
+            contenedor.className = "invalido";
         }
     }
 }

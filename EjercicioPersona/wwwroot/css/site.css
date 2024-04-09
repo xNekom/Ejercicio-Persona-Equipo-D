@@ -33,3 +33,26 @@ body {
     height: 50px;
     background-color: red;
 }
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.validoVerde {
+    font-size: 2em; /* Ajusta el tamaño de la letra */
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 0 0 2px green;
+}
+.validoRojo {
+    font-size: 2em; /* Ajusta el tamaño de la letra */
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 0 0 2px red;
+}
