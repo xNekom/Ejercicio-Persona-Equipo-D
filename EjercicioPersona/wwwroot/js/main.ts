@@ -62,6 +62,21 @@ class CreadorManualEspañol implements IPersonable {
     }
 }
 
+class ConfiguradorAdjunto implements IConfigurable {
+    dameGenerador(): IGeneraHTML {
+        return new MiPrimerHTML(new HTMLChurrutero());
+    }
+    dameCreador(): IPersonable {
+        return new CreadorManualEspañol();
+    }
+    dameValidador(): IValidable {
+        return new ValidadorEspañol();
+    }
+    dameMostrador(): IMuestra {
+        return new MuestraHTML2();
+    }
+}
+
 class CreadorHTML implements IPersonable {
     damePersona(): Persona {
         let MiPersona: Persona = new Persona();
@@ -178,7 +193,7 @@ class ValidadorIngles implements IValidable {
             MiPersona.primerNombre.length > 0);
     }
 }
-let ConfiguradorGeneral: IConfigurable = new ConfiguradorEspañolBasico();
+let ConfiguradorGeneral: IConfigurable = new ConfiguradorAdjunto();
 let GeneradorHTML: IGeneraHTML = ConfiguradorGeneral.dameGenerador();
 let _formulario = document.getElementById("formulario");
 if (_formulario != null) {
@@ -213,19 +228,5 @@ function valida() {
         if (_verde != null) {
             _verde.innerHTML = "";
         }
-    }
-}
-class ConfiguradorAdjunto implements IConfigurable {
-    dameGenerador(): IGeneraHTML {
-        return new MiPrimerHTML(new HTMLChurrutero());
-    }
-    dameCreador(): IPersonable {
-        return new CreadorManualEspañol();
-    }
-    dameValidador(): IValidable {
-        return new ValidadorEspañol();
-    }
-    dameMostrador(): IMuestra {
-        return new MuestraHTML2();
     }
 }
