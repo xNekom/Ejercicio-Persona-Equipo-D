@@ -25,10 +25,10 @@ class ConfiguradorEspañolBasico {
         return new MiPrimerHTML(new HTMLBootStrap());
     }
     dameCreador() {
-        return new CreadorManualEspañol();
+        return new CreadorHTML();
     }
     dameValidador() {
-        return new ValidadorEspañol();
+        return new ValidadorIngles();
     }
     dameMostrador() {
         return new MuestraHTML();
@@ -45,6 +45,20 @@ class CreadorManualEspañol {
         MiPersona.identificador = "2323232";
         MiPersona.activo = true;
         return MiPersona;
+    }
+}
+class ConfiguradorAdjunto {
+    dameGenerador() {
+        return new MiPrimerHTML(new HTMLChurrutero());
+    }
+    dameCreador() {
+        return new CreadorManualEspañol();
+    }
+    dameValidador() {
+        return new ValidadorEspañol();
+    }
+    dameMostrador() {
+        return new MuestraHTML2();
     }
 }
 class CreadorHTML {
@@ -144,7 +158,7 @@ class ValidadorIngles {
             MiPersona.primerNombre.length > 0);
     }
 }
-let ConfiguradorGeneral = new ConfiguradorEspañolBasico();
+let ConfiguradorGeneral = new ConfiguradorAdjunto();
 let GeneradorHTML = ConfiguradorGeneral.dameGenerador();
 let _formulario = document.getElementById("formulario");
 if (_formulario != null) {
