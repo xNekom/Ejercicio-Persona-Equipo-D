@@ -215,3 +215,17 @@ function valida() {
         }
     }
 }
+class ConfiguradorAdjunto implements IConfigurable {
+    dameGenerador(): IGeneraHTML {
+        return new MiPrimerHTML(new HTMLChurrutero());
+    }
+    dameCreador(): IPersonable {
+        return new CreadorManualEspañol();
+    }
+    dameValidador(): IValidable {
+        return new ValidadorEspañol();
+    }
+    dameMostrador(): IMuestra {
+        return new MuestraHTML2();
+    }
+}
